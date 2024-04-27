@@ -65,10 +65,9 @@ def __(mo):
     return
 
 
-app._unparsable_cell(
-    r"""
+@app.cell
+def __():
     import pandas as pd
-    %matplotlib inline
     import matplotlib.pyplot as plt
     import seaborn as sns
 
@@ -77,9 +76,7 @@ app._unparsable_cell(
     df = pd.read_csv(adults, na_values=['?'])
 
     df
-    """,
-    name="__"
-)
+    return adults, df, pd, plt, sns
 
 
 @app.cell
@@ -171,8 +168,6 @@ def __(mo):
 @app.cell
 def __():
     # Your code here . . .
-
-
     return
 
 
@@ -333,7 +328,6 @@ def __(mo):
 @app.cell
 def __():
     # Your code here . . .
-
     return
 
 
@@ -345,4 +339,3 @@ def __():
 
 if __name__ == "__main__":
     app.run()
-
